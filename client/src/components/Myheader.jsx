@@ -28,7 +28,7 @@ export default function Myheader() {
                 <AiOutlineMoon />
             </Button>
             <Link to='/sign-in'>
-            <Button gradientDuoTone="purpleToBlue" outline>Sign In</Button>
+            <Button gradientDuoTone="purpleToBlue" >Sign In</Button>
             </Link>
             <Navbar.Toggle />
 
