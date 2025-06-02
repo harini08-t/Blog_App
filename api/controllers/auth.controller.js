@@ -3,7 +3,7 @@ import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { errorHandler } from "../utils/error.js";
 export const signup= async(req,res,next)=>{
-// console.log(req.body);
+
 
 const {username,email,password}=req.body;
 
@@ -21,13 +21,8 @@ try {
     await newUser.save();
 res.json({message:'POST IS WORKING'});
 } catch (error) {
-    next(error);
-    
-    
-}
-
-
-};
+    next(error);  
+}};
 
 export const signin = async (req, res, next) => {
     const { email, password } = req.body;
@@ -43,7 +38,7 @@ export const signin = async (req, res, next) => {
       }
       const validPassword = bcryptjs.compareSync(password, validUser.password);
       if (!validPassword) {
-        return next(errorHandler(400, 'Invalid password'));
+        return next(errorHandler(400,'Invalid password'));
       }
       const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
   
