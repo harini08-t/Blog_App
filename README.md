@@ -38,7 +38,7 @@ This app uses **Firebase Google OAuth** to authenticate users. On first login, u
  🚀 Getting Started
 **1. Clone the repository**
 
-git clone https://github.com/your-username/js-blog.git
+https://github.com/harini08-t/Blog_App.git
 
 cd js-blog
 # 2.Install dependencies 
