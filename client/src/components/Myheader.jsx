@@ -1,9 +1,11 @@
-import { Button, ButtonGroup, Navbar, TextInput } from 'flowbite-react'
+import { Avatar, Button, ButtonGroup, Dropdown, DropdownDivider, DropdownHeader, DropdownItem, Navbar, TextInput } from 'flowbite-react'
 import React from 'react'
 import { Link,useLocation } from 'react-router-dom'
+import {useSelector} from 'react-redux';
 import {AiOutlineMoon, AiOutlineSearch} from "react-icons/ai"
 export default function Myheader() {
     const path=useLocation().pathname;
+    const {currentUser}=useSelector(state=>state.user);
   return (
     <Navbar className='border-b-2'>
         <Link to="/" className='self-center whitespace-nowrap text-sm
@@ -27,9 +29,39 @@ export default function Myheader() {
             <Button className='w-12 h-10 hidden sm:inline' color='gray' pill>
                 <AiOutlineMoon />
             </Button>
-            <Link to='/sign-in'>
-            <Button gradientDuoTone="purpleToBlue" outline>Sign In</Button>
-            </Link>
+            {currentUser ? (
+              <Dropdown 
+              arrowIcon={false}
+              inline
+              label={
+                <Avatar 
+                alt='user'
+                img={currentUser.profilePicture}
+                rounded
+                />
+
+              }
+              >
+               <DropdownHeader>
+                <span className='block text-sm'>@{currentUser.username}</span>
+                <span className='block text-sm font-medium truncate'>{currentUser.email}</span>
+               </DropdownHeader>
+               <Link to='/dashboard?tab=profile'>
+               <DropdownItem>Profile</DropdownItem>
+
+               </Link>
+               <DropdownDivider />
+               <DropdownItem>Sign Out</DropdownItem>
+
+              </Dropdown>
+                
+
+            ):
+            ( <Link to='/sign-in'>
+            <Button gradientDuoTone= 'purpleToBlue' outline>Sign In</Button>
+            </Link>)
+          }
+           
             <Navbar.Toggle />
 
         </div>
