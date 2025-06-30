@@ -148,7 +148,7 @@ export default function DashPost() {
       ) : (
         <p>You have no posts yet!</p>
       )}
-      <Modal show={showModal}More actions
+      <Modal show={showModal}
         onClose={() => setShowModal(false)}
         popup
         size='md'>
