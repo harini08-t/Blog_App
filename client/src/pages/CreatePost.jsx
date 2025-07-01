@@ -54,7 +54,7 @@ export default function CreatePost() {
             <option value='javascript'>JavaScript</option>
             <option value='reactjs'>React.js</option>
             <option value='nextjs'>Next.js</option>
-            <option value='nextjs'>DSA</option>
+            <option value='dsa'>DSA</option>
 
           </Select>
         </div>
