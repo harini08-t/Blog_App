@@ -15,7 +15,7 @@ export default function UpdatePost() {
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
   const { postId } = useParams();
-  console.log(postId);
+  
 
   const navigate = useNavigate();
     const { currentUser } = useSelector((state) => state.user);
